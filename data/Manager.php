@@ -2,10 +2,17 @@
 //class pareny
 class Manager {
     var string $name;
+    var string $title;
+
+    public function __construct(string $name = "", string $title = "")
+    {
+        $this->name = $name;
+        $this->title = $title;    
+    }
 
     function sayHello(string $name): void
     {
-        echo "Hi $name, my name is $this->name \n";
+        echo "Hi $name, my name is Manager $this->name \n";
     }
 }
 
@@ -19,4 +26,15 @@ class Manager {
  //class child
 class ViceManager extends Manager{
 
+    //construct override
+    public function __construct(string $name = "")
+    {
+        parent::__construct($name, "VP");
+    }
+
+    //function override = penurunan atau penggunaan function dari parent ke child 
+    function sayHello(string $name): void
+    {
+        echo "Hi $name, my name is Vicemanager $this->name \n";
+    }
 }
